@@ -1,6 +1,20 @@
 import React from "react";
 
 const LandingPage = () => {
+
+
+  const reviews = [
+  "https://www.ecomempire.ai/wp-content/uploads/2025/09/1-1-1024x518.jpg",
+  "https://www.ecomempire.ai/wp-content/uploads/2025/09/4-1-1024x483.jpg",
+  "https://www.ecomempire.ai/wp-content/uploads/2025/09/2-1-1024x481.jpg",
+  "https://www.ecomempire.ai/wp-content/uploads/2025/09/5-1-1024x485.jpg",
+  "https://www.ecomempire.ai/wp-content/uploads/2025/09/6-1-1024x518.jpg",
+  "https://www.ecomempire.ai/wp-content/uploads/2025/09/3-1-1024x587.jpg",
+];
+
+
+
+
   return (
     <div className="w-full text-gray-900">
 
@@ -136,13 +150,29 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ================= TESTIMONIALS ================= */}
-      <section className="py-14 px-4 bg-green-50 text-center">
-        <h2 className="text-3xl font-extrabold mb-6">
-          What our <span className="text-green-600">Students Say…</span>
-        </h2>
-        <p className="text-gray-500">Testimonials will appear here</p>
-      </section>
+     {/* ================= TESTIMONIALS ================= */}
+<section className="py-14 px-4 bg-green-50">
+  <h2 className="text-center text-3xl font-extrabold mb-10">
+    What our <span className="text-green-600">Students Say…</span>
+  </h2>
+
+  <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    {reviews.map((img, index) => (
+      <div
+        key={index}
+        className="bg-white p-3 rounded-xl shadow hover:shadow-lg transition duration-300"
+      >
+        <img
+          src={img}
+          alt={`Student Review ${index + 1}`}
+          className="rounded-lg w-full h-auto object-cover"
+          loading="lazy"
+        />
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* ================= GUARANTEE ================= */}
       <section className="py-14 px-4 text-center">
@@ -194,3 +224,12 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
+
+
+
+// https://www.ecomempire.ai/wp-content/uploads/2025/09/1-1-1024x518.jpg
+// https://www.ecomempire.ai/wp-content/uploads/2025/09/4-1-1024x483.jpg
+// https://www.ecomempire.ai/wp-content/uploads/2025/09/2-1-1024x481.jpg
+// https://www.ecomempire.ai/wp-content/uploads/2025/09/5-1-1024x485.jpg
+// https://www.ecomempire.ai/wp-content/uploads/2025/09/6-1-1024x518.jpg
+// https://www.ecomempire.ai/wp-content/uploads/2025/09/3-1-1024x587.jpg
