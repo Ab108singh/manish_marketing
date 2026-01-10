@@ -29,9 +29,15 @@ const LandingPage = () => {
       <section className="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-10 items-center">
         
         {/* Video */}
-        <div className="bg-gray-200 rounded-xl h-72 flex items-center justify-center text-gray-600 font-semibold">
-          ▶ Workshop Video
-        </div>
+        <div className="w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+  <iframe
+    src="https://player.vimeo.com/video/977681131?color=ffffff&autopause=0&loop=0&muted=0&title=0&portrait=0&byline=0"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowFullScreen
+    className="w-full h-full"
+    title="Workshop Video"
+  ></iframe>
+</div>
 
         {/* Details */}
         <div>
