@@ -279,9 +279,54 @@ const LandingPage = () => {
       </section>
 
       {/* ================= FOOTER ================= */}
-      <footer className="text-center text-xs py-4 bg-gray-900 text-white">
-        Contact Us | Terms of Service | Privacy Policy | Shipping & Delivery | Cancellation & Refund  
-        <br />© 2025 Ecom Empire. All rights reserved.
+      <footer className="text-center text-xs py-6 bg-gray-900 text-white">
+        <div className="flex flex-wrap justify-center gap-4 mb-3">
+          <a 
+            href="https://www.ecomempire.ai/contact-us/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-yellow-400 transition-colors"
+          >
+            Contact Us
+          </a>
+          <span className="text-gray-600">|</span>
+          <a 
+            href="https://www.ecomempire.ai/terms-of-service/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-yellow-400 transition-colors"
+          >
+            Terms of Service
+          </a>
+          <span className="text-gray-600">|</span>
+          <a 
+            href="https://www.ecomempire.ai/privacy-policy/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-yellow-400 transition-colors"
+          >
+            Privacy Policy
+          </a>
+          <span className="text-gray-600">|</span>
+          <a 
+            href="https://www.ecomempire.ai/shipping-and-delivery/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-yellow-400 transition-colors"
+          >
+            Shipping & Delivery
+          </a>
+          <span className="text-gray-600">|</span>
+          <a 
+            href="https://www.ecomempire.ai/refund-policy/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-yellow-400 transition-colors"
+          >
+            Refund Policy
+          </a>
+        </div>
+        <p>© 2025 Ecom Empire. All rights reserved.</p>
       </footer>
 
     </div>
