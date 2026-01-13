@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 const LandingPage = () => {
+  const [expandedFAQ, setExpandedFAQ] = useState(null);
 
+  const toggleFAQ = (index) => {
+    setExpandedFAQ(expandedFAQ === index ? null : index);
+  };
 
   const reviews = [
   "https://www.ecomempire.ai/wp-content/uploads/2025/09/1-1-1024x518.jpg",
@@ -11,6 +15,37 @@ const LandingPage = () => {
   "https://www.ecomempire.ai/wp-content/uploads/2025/09/6-1-1024x518.jpg",
   "https://www.ecomempire.ai/wp-content/uploads/2025/09/3-1-1024x587.jpg",
 ];
+
+  const faqs = [
+    {
+      question: "Will this workshop be live?",
+      answer: "Yes! This is a LIVE interactive workshop where you can ask questions in real-time and get immediate answers. You'll be learning alongside other aspiring e-commerce entrepreneurs, making it a collaborative experience."
+    },
+    {
+      question: "Any hidden terms & conditions?",
+      answer: "Absolutely not! What you see is what you get. The ₹99/- registration fee is all you need to pay. There are no hidden costs, no upsells during the workshop, and no surprise charges. We believe in complete transparency."
+    },
+    {
+      question: "Will you share the recording?",
+      answer: "Yes, all registered attendees will receive access to the complete workshop recording. However, we highly recommend attending live to get the most value, ask questions, and participate in interactive sessions."
+    },
+    {
+      question: "How will I get the bonuses?",
+      answer: "All bonuses worth ₹10,000/- will be delivered digitally via email within 24 hours of your registration. You'll receive immediate access to the Workshop Starter Kit, community invite, and other resources before the workshop begins."
+    },
+    {
+      question: "How will you remind me of the workshop?",
+      answer: "You'll receive multiple reminders via email and WhatsApp (if provided). We'll send you a reminder 24 hours before, 1 hour before, and 15 minutes before the workshop starts, along with the Zoom link to join."
+    },
+    {
+      question: "Do I need to bring anything?",
+      answer: "Just bring yourself, a notebook, and an open mind! You'll need a stable internet connection and a device (laptop, tablet, or smartphone) to join the Zoom session. No prior technical knowledge or experience is required."
+    },
+    {
+      question: "How will I get a refund?",
+      answer: "If you attend the workshop and don't find it helpful, simply email us within 7 days at support@ecomempire.ai with your registration details. We'll process 200% of your money back - no questions asked. That's our promise!"
+    }
+  ];
 
 
 
@@ -66,9 +101,16 @@ const LandingPage = () => {
             <div className="border rounded-lg p-3">🗣 Language<br /><b>Hindi</b></div>
           </div>
 
-          <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-xl w-full md:w-auto">
-            Register Now @ ₹99/-
-          </button>
+          <a 
+            href="https://rzp.io/rzp/TQi7nkY" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-xl w-full md:w-auto">
+              Register Now @ ₹99/-
+            </button>
+          </a>
         </div>
       </section>
 
@@ -144,9 +186,16 @@ const LandingPage = () => {
         </div>
 
         <div className="text-center mt-8">
-          <button className="bg-yellow-400 text-black font-bold py-3 px-8 rounded-xl">
-            Register Now @ ₹99/-
-          </button>
+          <a 
+            href="https://rzp.io/rzp/TQi7nkY" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-xl">
+              Register Now @ ₹99/-
+            </button>
+          </a>
         </div>
       </section>
 
@@ -185,9 +234,16 @@ const LandingPage = () => {
           <b> 200% of your money.</b> No questions asked. Promise!
         </p>
 
-        <button className="mt-6 bg-yellow-400 font-bold py-3 px-6 rounded-xl">
-          Register Now @ ₹99/-
-        </button>
+        <a 
+          href="https://rzp.io/rzp/TQi7nkY" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-block"
+        >
+          <button className="mt-6 bg-yellow-400 hover:bg-yellow-500 font-bold py-3 px-6 rounded-xl">
+            Register Now @ ₹99/-
+          </button>
+        </a>
       </section>
 
       {/* ================= FAQ ================= */}
@@ -197,17 +253,26 @@ const LandingPage = () => {
         </h2>
 
         <div className="max-w-3xl mx-auto space-y-4">
-          {[
-            "Will this workshop be live?",
-            "Any hidden terms & conditions?",
-            "Will you share the recording?",
-            "How will I get the bonuses?",
-            "How will you remind me of the workshop?",
-            "Do I need to bring anything?",
-            "How will I get a refund?",
-          ].map((q, i) => (
-            <div key={i} className="bg-white p-4 rounded-xl shadow font-medium">
-              ➕ {q}
+          {faqs.map((faq, i) => (
+            <div 
+              key={i} 
+              className="bg-white rounded-xl shadow overflow-hidden transition-all duration-300 hover:shadow-lg"
+            >
+              <button
+                onClick={() => toggleFAQ(i)}
+                className="w-full p-4 text-left font-medium flex justify-between items-center hover:bg-gray-50 transition-colors"
+              >
+                <span>{faq.question}</span>
+                <span className="text-green-600 text-xl font-bold ml-4">
+                  {expandedFAQ === i ? "➖" : "➕"}
+                </span>
+              </button>
+              
+              {expandedFAQ === i && (
+                <div className="px-4 pb-4 text-sm text-gray-700 border-t border-gray-100 pt-3 animate-fadeIn">
+                  {faq.answer}
+                </div>
+              )}
             </div>
           ))}
         </div>
